@@ -19,7 +19,7 @@ pub fn build(b: *std.Build) void {
     // libcalc_mod.addImport("libcalc", libcalc_dep.module("libcalc"));
 
     const lib = b.addStaticLibrary(.{
-        .name = "libcalc",
+        .name = "calc",
         .target = target,
         .optimize = optimize,
         .link_libc = true,
