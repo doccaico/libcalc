@@ -18,19 +18,19 @@ pub fn build(b: *std.Build) void {
     // });
     // libcalc_mod.addImport("libcalc", libcalc_dep.module("libcalc"));
 
-    const libcalc = b.addStaticLibrary(.{
+    const lib = b.addStaticLibrary(.{
         .name = "libcalc",
         .target = target,
         .optimize = optimize,
         .link_libc = true,
     });
 
-    libcalc.addCSourceFile(.{ .file = .{ .path = "src/calc.c" }, .flags = &.{} });
-    // libcalc.addIncludePath(.{ .path = "libcalc/include" });
-    libcalc.installHeadersDirectory(b.path("include/libcalc"), "libcalc", .{});
-    // libcalc.installHeadersDirectory(b.path("libcalc/include/libcalc"), "libcalc", .{});
+    lib.addCSourceFile(.{ .file = .{ .path = "src/calc.c" }, .flags = &.{} });
+    // lib.addIncludePath(.{ .path = "libcalc/include" });
+    lib.installHeadersDirectory(b.path("include/libcalc"), "libcalc", .{});
+    // lib.installHeadersDirectory(b.path("libcalc/include/libcalc"), "libcalc", .{});
 
-    b.installArtifact(libcalc);
+    b.installArtifact(lib);
 }
 
 // const std = @import("std");
