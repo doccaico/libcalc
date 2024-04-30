@@ -5,21 +5,20 @@ pub fn build(b: *std.Build) void {
     const optimize = b.standardOptimizeOption(.{});
 
     const lib = b.addStaticLibrary(.{
-        .name = "calc",
+        .name = "libcalc",
         .target = target,
         .optimize = optimize,
+        .link_libc = true,
     });
-    // lib.addIncludePath(.{ .path = "include" });
+
     lib.addCSourceFiles(.{
         .files = &.{
             "src/calc.c",
-            // "src/framing.c",
         },
-        .flags = &.{
-            // "-std=c99",
-        },
+        .flags = &.{},
     });
-    lib.linkLibC();
+
     lib.installHeadersDirectory(.{ .path = "include/libcalc" }, "libcalc", .{});
+
     b.installArtifact(lib);
 }
