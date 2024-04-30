@@ -20,6 +20,6 @@ pub fn build(b: *std.Build) void {
         },
     });
     lib.linkLibC();
-    lib.installHeadersDirectory(.{ .path = "include/libcalc" }, "calc", .{});
+    lib.installHeadersDirectory(.{ .path = "include/libcalc" }, "libcalc", .{});
     b.installArtifact(lib);
 }
