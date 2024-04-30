@@ -8,7 +8,6 @@ pub fn build(b: *std.Build) void {
         .name = "libcalc",
         .target = target,
         .optimize = optimize,
-        .link_libc = true,
     });
 
     lib.addCSourceFiles(.{
@@ -19,6 +18,6 @@ pub fn build(b: *std.Build) void {
     });
 
     lib.installHeadersDirectory(.{ .path = "include/libcalc" }, "libcalc", .{});
-
+    lib.linkLibC();
     b.installArtifact(lib);
 }
