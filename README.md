@@ -10,7 +10,7 @@ $ zig fetch --save=libcalc https://github.com/doccaico/libcalc-zig/archive/<HASH
 // build.zig
 
 const libcalc_dep = b.dependency("libcalc", .{ .target = target, .optimize = optimize });
-exe.linkLibrary(libcalc_dep.artifact("libcalc-zig"));
+exe.linkLibrary(libcalc_dep.artifact("libcalc"));
 
 // main.zig
 
