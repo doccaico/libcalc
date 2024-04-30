@@ -3,7 +3,7 @@
 On terminal
 
 ```
-$ zig fetch --save=libcalc https://github.com/doccaico/libcalc-zig/archive/<HASH>.tar.gz
+$ zig fetch --save=libcalc https://github.com/doccaico/libcalc/archive/<HASH>.tar.gz
 ```
 
 ```zig
